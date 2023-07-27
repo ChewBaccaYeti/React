@@ -1,11 +1,11 @@
-import { Friends } from 'data/friends.json';
+import { Friends } from './Friends';
 
-export const FriendsList = ({ friend }) => {
+export const FriendsList = ({ friends }) => {
   return (
     <ul>
-      {Friends.map((friend, idx) => (
-        <li key={idx}>
-          <Friends />
+      {friends.map(friend => (
+        <li key={friend.id}>
+          <Friends friend={friend} />
         </li>
       ))}
     </ul>
