@@ -4,7 +4,7 @@ import { App } from 'App';
 import { ThemeProvider } from 'styled-components';
 import './index.css';
 
-const theme = {
+export const theme = {
   black: 'black',
   white: 'white',
   accent: 'aqua',

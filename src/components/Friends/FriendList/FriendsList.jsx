@@ -1,4 +1,4 @@
-import { Friends } from './Friends';
+import { Friends } from '../Friends';
 
 export const FriendsList = ({ friends }) => {
   return (

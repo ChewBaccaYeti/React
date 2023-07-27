@@ -1,14 +1,22 @@
-import { Wrapper } from './Friends.styled';
+import {
+  Wrapper,
+  Avatar,
+  Name,
+  OnlineStatus,
+  TextBlock,
+} from './Friends.styled';
 import { theme } from 'index';
 
 export const Friends = ({ friend: { avatar, name, isOnline } }) => {
   return (
-    <Wrapper theme={theme}>
-      <div>
-        <img src={avatar} alt={name}></img>
-        <span>{name}</span>
-        <p>{isOnline ? 'Online' : 'Offline'}</p>
-      </div>
+    <Wrapper theme={theme} isOnline={isOnline}>
+      <Avatar src={avatar} alt={name}></Avatar>
+      <TextBlock>
+        <Name>{name}</Name>
+        <OnlineStatus isOnline={isOnline}>
+          {isOnline ? 'Online' : 'Offline'}
+        </OnlineStatus>
+      </TextBlock>
     </Wrapper>
   );
 };
