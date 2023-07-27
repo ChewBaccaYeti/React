@@ -4,14 +4,16 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  height: 200px;
   width: 200px;
   padding: 10px;
-  margin-bottom: 10px;
+  margin: 10px;
+
+  border: 1px solid black;
+  border-radius: 10px;
 
   border: 5px solid black;
   border-radius: 8px;
-  background-color: ${props => (props.isOnline ? 'gold' : 'grey')};  }};
+  background-color: ${props => (props.isOnline ? 'gold' : 'grey')};
 `;
 
 export const TextBlock = styled.div`
@@ -34,5 +36,3 @@ export const Name = styled.span`
 export const OnlineStatus = styled.p`
     color: ${props => (props.isOnline ? 'green' : 'red')};  }};
 `;
-
-// ${p => p.theme.colors.black}
