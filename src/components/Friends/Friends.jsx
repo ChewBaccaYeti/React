@@ -3,6 +3,7 @@ import {
   Avatar,
   Name,
   OnlineStatus,
+  OnlineGateKeeper,
   TextBlock,
 } from './Friends.styled';
 import { theme } from 'index';
@@ -14,7 +15,9 @@ export const Friends = ({ friend: { avatar, name, isOnline } }) => {
       <TextBlock>
         <Name>{name}</Name>
         <OnlineStatus isOnline={isOnline}>
-          {isOnline ? 'Online' : 'Offline'}
+          <OnlineGateKeeper isOnline={isOnline}>
+            {isOnline ? 'Online' : 'Offline'}
+          </OnlineGateKeeper>
         </OnlineStatus>
       </TextBlock>
     </Wrapper>

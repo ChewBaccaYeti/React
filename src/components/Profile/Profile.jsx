@@ -18,9 +18,27 @@ export const Profile = ({
         <span>@{tag}</span>
         <p>{location}</p>
         <Stats>
-          <p>Followers: {stats.followers}</p>
-          <p>Views: {stats.views}</p>
-          <p>Likes: {stats.likes}</p>
+          <div
+            style={{
+              width: 96.7,
+            }}
+          >
+            <p>Followers: {stats.followers}</p>
+          </div>
+          <div
+            style={{
+              width: 96.7,
+            }}
+          >
+            <p>Views: {stats.views}</p>
+          </div>
+          <div
+            style={{
+              width: 96.7,
+            }}
+          >
+            <p>Likes: {stats.likes}</p>
+          </div>
         </Stats>
       </InfoContainer>
     </ProfileBlock>
