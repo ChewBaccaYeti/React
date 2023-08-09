@@ -3,13 +3,13 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   width: 200px;
   padding: 10px;
   margin: 10px;
-
-  border: 1px solid black;
-  border-radius: 10px;
+  gap: 5px;
 
   border: 5px solid black;
   border-radius: 8px;
@@ -29,16 +29,28 @@ export const TextBlock = styled.div`
 `;
 
 export const Name = styled.span`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   color: black;
   border: 1px solid black;
   border-radius: 4px;
 `;
 
 export const OnlineStatus = styled.p`
-    color: ${props => (props.isOnline ? 'green' : 'red')};  }};
+  width: 50px;
+  color: ${props => (props.isOnline ? 'gold' : 'grey')};  }};
 `;
 
 export const OnlineGateKeeper = styled.div`
-  width: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 50px;
+  border-radius: 4px;
   background-color: ${props => (props.isOnline ? 'green' : 'red')};  }};
 `;

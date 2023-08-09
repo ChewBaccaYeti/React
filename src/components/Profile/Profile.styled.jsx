@@ -21,7 +21,7 @@ export const Avatar = styled.img`
 `;
 
 export const Username = styled.h2`
-  margin-bottom: 5px;npm dts
+  margin-bottom: 5px;
 `;
 
 export const InfoContainer = styled.div`

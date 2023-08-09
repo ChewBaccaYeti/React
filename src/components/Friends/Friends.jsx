@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   Wrapper,
   Avatar,
@@ -8,7 +9,7 @@ import {
 } from './Friends.styled';
 import { theme } from 'index';
 
-export const Friends = ({ friend: { avatar, name, isOnline } }) => {
+export const Friends = ({ friend: { avatar, name, isOnline }, id }) => {
   return (
     <Wrapper theme={theme} isOnline={isOnline}>
       <Avatar src={avatar} alt={name}></Avatar>
@@ -22,4 +23,12 @@ export const Friends = ({ friend: { avatar, name, isOnline } }) => {
       </TextBlock>
     </Wrapper>
   );
+};
+
+Friends.propTypes = {
+  avatar: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  isOnline: PropTypes.bool.isRequired,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    .isRequired,
 };

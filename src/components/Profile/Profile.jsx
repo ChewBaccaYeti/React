@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   ProfileBlock,
   Avatar,
@@ -7,7 +8,13 @@ import {
 } from './Profile.styled';
 
 export const Profile = ({
-  user: { username, tag, location, avatar, stats },
+  user: {
+    username,
+    tag,
+    location,
+    avatar,
+    stats: { followers, views, likes },
+  },
 }) => {
   return (
     <ProfileBlock>
@@ -23,24 +30,36 @@ export const Profile = ({
               width: 96.7,
             }}
           >
-            <p>Followers: {stats.followers}</p>
+            <p>Followers: {followers}</p>
           </div>
           <div
             style={{
               width: 96.7,
             }}
           >
-            <p>Views: {stats.views}</p>
+            <p>Views: {views}</p>
           </div>
           <div
             style={{
               width: 96.7,
             }}
           >
-            <p>Likes: {stats.likes}</p>
+            <p>Likes: {likes}</p>
           </div>
         </Stats>
       </InfoContainer>
     </ProfileBlock>
   );
+};
+
+Profile.propTypes = {
+  username: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  stats: PropTypes.shape({
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired,
+  }).isRequired,
 };
