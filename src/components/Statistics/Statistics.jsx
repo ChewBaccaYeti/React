@@ -1,55 +1,37 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Stats,
-  UploadStats,
+  Title,
   StatsList,
-  ListItem,
   Item,
+  Label,
+  Percentage,
 } from './Statistics.styled';
 import { generateRandomColor } from 'utils/randomColor';
 
-export const Statistics = ({ data: { id, label, percentage } }) => {
+export const Statistics = ({ data }) => {
   return (
     <Stats>
-      <UploadStats></UploadStats>
+      <Title>Upload stats</Title>
       <StatsList>
-        <ListItem key={id} style={{ backgroundColor: generateRandomColor() }}>
-          <Item>
-            {label}
-            {percentage}
+        {data.map(({ id, label, percentage }) => (
+          <Item key={id} color={generateRandomColor()}>
+            <Label>{label}</Label>
+            <Percentage>{percentage}%</Percentage>
           </Item>
-        </ListItem>
-        <ListItem key={id} style={{ backgroundColor: generateRandomColor() }}>
-          <Item>
-            {label}
-            {percentage}
-          </Item>
-        </ListItem>
-        <ListItem key={id} style={{ backgroundColor: generateRandomColor() }}>
-          <Item>
-            {label}
-            {percentage}
-          </Item>
-        </ListItem>
-        <ListItem key={id} style={{ backgroundColor: generateRandomColor() }}>
-          <Item>
-            {label}
-            {percentage}
-          </Item>
-        </ListItem>
-        <ListItem key={id} style={{ backgroundColor: generateRandomColor() }}>
-          <Item>
-            {label}
-            {percentage}
-          </Item>
-        </ListItem>
+        ))}
       </StatsList>
     </Stats>
   );
 };
 
 Statistics.propTypes = {
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  percentage: PropTypes.number.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };

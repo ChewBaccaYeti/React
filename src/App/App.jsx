@@ -10,10 +10,12 @@ import { Statistics } from '../components/Statistics/Statistics';
 
 export const App = () => {
   return (
-    <div className={styles.card}>
-      <Profile user={user}></Profile>
-      <FriendsList friends={friends} />
-      <Statistics data={data} />
+    <div className={styles.parent}>
+      <div className={styles.card}>
+        <Profile user={user}></Profile>
+        <FriendsList friends={friends} />
+        <Statistics data={data} />
+      </div>
     </div>
   );
 };
