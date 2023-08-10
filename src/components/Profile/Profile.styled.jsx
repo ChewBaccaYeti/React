@@ -16,8 +16,7 @@ export const ProfileBlock = styled.div`
 `;
 
 export const Avatar = styled.img`
-  height: 150px;
-  width: 150px;
+  width: 250px;
 `;
 
 export const Username = styled.h2`
