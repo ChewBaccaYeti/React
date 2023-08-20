@@ -4,7 +4,7 @@ import { Table, Thead, Tr, Th, Td, Tbody } from './Transactions.styled';
 
 export const Transactions = ({ items }) => {
   return (
-    <Table class="transaction-history">
+    <Table className="transaction-history">
       <Thead>
         <Tr>
           <Th>Type</Th>

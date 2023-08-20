@@ -9,12 +9,12 @@ import {
 } from './Friends.styled';
 import { theme } from 'index';
 
-export const Friends = ({ friend: { avatar, name, isOnline }, id }) => {
+export const Friends = ({ friend: { avatar, name, isOnline, id } }) => {
   return (
     <Wrapper theme={theme} isOnline={isOnline}>
       <Avatar src={avatar} alt={name}></Avatar>
       <TextBlock>
-        <Name>{name}</Name>
+        <Name id={id}>{name}</Name>
         <OnlineStatus isOnline={isOnline}>
           <OnlineGateKeeper isOnline={isOnline}>
             {isOnline ? 'Online' : 'Offline'}

@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 
   border: 5px solid black;
   border-radius: 8px;
-  background-color: ${props => (props.isOnline ? 'gold' : 'grey')};
+  background-color: ${props => (props.isonline ? 'gold' : 'grey')};
 `;
 
 export const Avatar = styled.img`
@@ -39,12 +39,8 @@ export const Name = styled.span`
   border-radius: 4px;
 `;
 
-export const OnlineStatus = styled.p`
-  width: 50px;
-  color: ${props => (props.isOnline ? 'gold' : 'grey')};  }};
-`;
+export const OnlineGateKeeper = styled.p`
 
-export const OnlineGateKeeper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,4 +49,9 @@ export const OnlineGateKeeper = styled.div`
   width: 50px;
   border-radius: 4px;
   background-color: ${props => (props.isOnline ? 'green' : 'red')};  }};
+`;
+
+export const OnlineStatus = styled.div`
+  width: 50px;
+  color: ${props => (props.isOnline ? 'gold' : 'grey')};  }};
 `;
