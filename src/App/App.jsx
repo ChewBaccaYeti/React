@@ -1,3 +1,4 @@
+// 1st React home-work
 import React from 'react';
 import data from 'data/data';
 import friends from 'data/friends';
