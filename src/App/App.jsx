@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import FeedbackOptions from 'Components/Feedback/FeedbackOptions/FeedbackOptions';
-import FeedbackStatistics from 'Components/Feedback/FeedbackStatistics/FeedbackStatistics';
+import Options from 'Components/Feedback/Options/Options';
+import Container from 'Components/Layout/Container/Container.styled';
+import { GlobalStyle } from 'utils/GlobalStyle';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <FeedbackOptions />
-      </div>
+      <Container>
+        <Options />
+        <GlobalStyle />
+      </Container>
     );
   }
 }
