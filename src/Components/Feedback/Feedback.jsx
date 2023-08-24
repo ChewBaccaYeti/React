@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Container } from './Options.styled';
+import { Container } from './Feedback.styled';
 import FeedbackButton from 'Components/Feedback/Buttons/Buttons';
 
-class Options extends Component {
+class Feedback extends Component {
   state = {
     good: 0,
     neutral: 0,
@@ -21,4 +21,4 @@ class Options extends Component {
   }
 }
 
-export default Options;
+export default Feedback;
