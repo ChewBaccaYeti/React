@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Feedback from 'Components/Feedback/Feedback';
 import Phonebook from 'Components/Phonebook/Phonebook';
-import Container from 'Components/Layout/Container/Container.styled';
+import ImageFinder from 'Components/ImageFinder/ImageFinder';
+import Container from 'Layout/Container/Container.styled';
 import { GlobalStyle } from 'utils/GlobalStyle';
 
 class App extends Component {
@@ -10,6 +11,7 @@ class App extends Component {
       <Container>
         <Feedback />
         <Phonebook />
+        <ImageFinder />
         <GlobalStyle />
       </Container>
     );

@@ -31,6 +31,7 @@ export class Phonebook extends Component {
         contact.name.toLowerCase() === name.toLowerCase() ||
         contact.phoneNumber === phoneNumber
     );
+
     // if (!contactExists && name && phoneNumber) {
     //   const newContact = { name, phoneNumber };
     //   this.setState({
@@ -42,17 +43,17 @@ export class Phonebook extends Component {
     // }
     // Мені подобається цей метод фільтрацій існуючих контактів, тож я не буду видаляти його. Дуже практично якщо не потрібно повідомлення.
 
-    if (contactExists) {
-      this.setState({ isDuplicateAlertVisible: true });
-    } else if (name && phoneNumber) {
-      const newContact = { name, phoneNumber };
-      this.setState({
-        contacts: [...contacts, newContact],
-        name: '',
-        phoneNumber: '',
-        isDuplicateAlertVisible: false,
-      });
-    }
+    // if (contactExists) {
+    //   this.setState({ isDuplicateAlertVisible: true });
+    // } else if (name && phoneNumber) {
+    //   const newContact = { name, phoneNumber };
+    //   this.setState({
+    //     contacts: [...contacts, newContact],
+    //     name: '',
+    //     phoneNumber: '',
+    //     isDuplicateAlertVisible: false,
+    //   });
+    // }
     // А цей метод виводить повідомлення з попередженням що контакт вже існує
 
     if (contactExists) {
@@ -66,6 +67,21 @@ export class Phonebook extends Component {
       });
     }
     // Це виклик стандартного повідомлення браузера. Скучно.
+
+    if (contactExists) {
+      this.setState({ isDuplicateAlertVisible: true });
+    } else if (name && phoneNumber) {
+      const newContact = { name, phoneNumber };
+      const updatedContacts = [...contacts, newContact];
+      this.setState({
+        contacts: updatedContacts,
+        name: '',
+        phoneNumber: '',
+        isDuplicateAlertVisible: false,
+      });
+      localStorage.setItem('contacts', JSON.stringify(updatedContacts));
+    }
+    // Це метод, вдосконаленний, для зберігання даних у localStorage
   };
 
   closeDuplicateAlert = () => {
@@ -77,6 +93,16 @@ export class Phonebook extends Component {
     const updatedContacts = contacts.filter((_, i) => i !== index);
     this.setState({ contacts: updatedContacts });
   };
+
+  componentDidMount() {
+    const savedData = localStorage.getItem('contacts');
+    if (savedData) {
+      const parsedData = JSON.parse(savedData);
+      this.setState({ contacts: parsedData });
+    }
+  }
+
+  // componentDidUpdate(prevProps, prevState) {}
 
   render() {
     const { contacts, name, phoneNumber, filterName, isDuplicateAlertVisible } =
