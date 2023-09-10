@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { ImageItem, Image } from './ImageGalleryItem.styled';
 
-export class ImageGalleryItem extends Component {
+class ImageGalleryItem extends Component {
   render() {
     const { image } = this.props;
 
@@ -12,5 +13,12 @@ export class ImageGalleryItem extends Component {
     );
   }
 }
+
+ImageGalleryItem.propTypes = {
+  image: PropTypes.shape({
+    largeImageURL: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default ImageGalleryItem;

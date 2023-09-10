@@ -24,8 +24,8 @@ async function fetchImages(query, page = 1) {
       throw new Error(`No images found for query: ${query}`);
     }
   } catch (error) {
-    console.error(error); // Обробка помилки, якщо вона виникає під час виконання запиту або обробки даних
-    throw error; // Перенаправлення помилки для подальшої обробки на рівні виклику функції fetchImages
+    console.error(error);
+    throw error;
   }
 }
 

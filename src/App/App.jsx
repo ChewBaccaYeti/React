@@ -9,12 +9,15 @@ import { GlobalStyle } from 'utils/GlobalStyle';
 class App extends Component {
   render() {
     return (
-      <Container>
-        <Feedback />
-        <Phonebook />
+      <>
+        {' '}
+        <Container>
+          <Feedback />
+          <Phonebook />
+          <GlobalStyle />
+        </Container>
         <ImageFinder />
-        <GlobalStyle />
-      </Container>
+      </>
     );
   }
 }
