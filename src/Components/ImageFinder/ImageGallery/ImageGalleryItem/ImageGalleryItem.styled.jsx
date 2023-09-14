@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ImageItem = styled.li`
+export const ListItem = styled.li`
   .ImageGalleryItem {
     border-radius: 2px;
     box-shadow:

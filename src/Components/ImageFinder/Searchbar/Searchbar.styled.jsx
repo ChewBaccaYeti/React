@@ -53,6 +53,10 @@ export const SearchButton = styled.button`
 `;
 
 export const SearchLabel = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   position: absolute;
   width: 1px;
   height: 1px;

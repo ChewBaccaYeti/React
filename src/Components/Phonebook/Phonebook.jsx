@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import PhonebookField from './Phonebook.styled';
 import PhonebookFilter from './PhonebookFilter';
 import PopUp from './PopUp/PopUp';
@@ -156,5 +157,13 @@ export class Phonebook extends Component {
     );
   }
 }
+
+Phonebook.propTypes = {
+  contacts: PropTypes.array,
+  name: PropTypes.string,
+  phoneNumber: PropTypes.number,
+  filterName: PropTypes.string,
+  isDuplicateAlertVisible: PropTypes.bool,
+};
 
 export default Phonebook;

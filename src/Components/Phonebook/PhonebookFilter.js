@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const PhonebookFilter = ({ filterName, handleFilterChange, contacts }) => {
   const filteredContacts = contacts.filter(contact =>
@@ -23,6 +24,14 @@ const PhonebookFilter = ({ filterName, handleFilterChange, contacts }) => {
       </ul>
     </div>
   );
+};
+
+PhonebookFilter.propTypes = {
+  filterName: PropTypes.string.isRequired,
+  handleFilterChange: PropTypes.func.isRequired,
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  filter: PropTypes.func,
+  toLowerCase: PropTypes.bool,
 };
 
 export default PhonebookFilter;

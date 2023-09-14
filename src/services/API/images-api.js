@@ -1,36 +1,35 @@
 import axios from 'axios';
 
-async function fetchImages(query, page = 1) {
-  const apiKey = '35193871-7d122815c37d1c9f4ada7ea8e';
-  const perPage = 12;
-  const apiUrl = `https://pixabay.com/api/?q=${query}&page=${page}&key=${apiKey}&image_type=photo&orientation=horizontal&per_page=${perPage}`;
+const apiKey = '35193871-7d122815c37d1c9f4ada7ea8e';
+const perPage = 12;
 
-  try {
-    const response = await axios.get(apiUrl);
+const api = {
+  async fetchImages(query, page = 1) {
+    const apiUrl = `https://pixabay.com/api/?q=${query}&page=${page}&key=${apiKey}&image_type=photo&orientation=horizontal&per_page=${perPage}`;
 
-    if (response.status !== 200) {
-      throw new Error(`Error fetching images for query: ${query}`);
-    }
+    try {
+      const response = await axios.get(apiUrl);
 
-    const data = response.data;
+      if (response.status !== 200) {
+        throw new Error(`Error fetching images for query: ${query}`);
+      }
 
-    if (data.hits && data.hits.length > 0) {
+      const data = response.data;
+
+      if (!data.hits || data.hits.length === 0) {
+        throw new Error(`No images found for query: ${query}`);
+      }
+
       return data.hits.map(item => ({
         id: item.id,
         webformatURL: item.webformatURL,
         largeImageURL: item.largeImageURL,
       }));
-    } else {
-      throw new Error(`No images found for query: ${query}`);
+    } catch (error) {
+      console.error(error);
+      throw error;
     }
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-}
-
-const api = {
-  fetchImages,
+  },
 };
 
 export default api;

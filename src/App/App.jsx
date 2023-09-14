@@ -1,5 +1,7 @@
 // 2nd-react-home-work
 import React, { Component } from 'react';
+import { ToastContainer } from 'react-toastify';
+import { ErrorBoundary } from 'react-error-boundary';
 import Feedback from 'Components/Feedback/Feedback';
 import Phonebook from 'Components/Phonebook/Phonebook';
 import ImageFinder from 'Components/ImageFinder/ImageFinder';
@@ -11,12 +13,16 @@ class App extends Component {
     return (
       <>
         {' '}
-        <Container>
-          <Feedback />
-          <Phonebook />
-          <GlobalStyle />
-        </Container>
-        <ImageFinder />
+        <ErrorBoundary>
+          {' '}
+          <Container>
+            <Feedback />
+            <Phonebook />
+            <GlobalStyle />
+          </Container>
+          <ImageFinder />
+          <ToastContainer />
+        </ErrorBoundary>
       </>
     );
   }
