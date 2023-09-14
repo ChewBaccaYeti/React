@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from './Button.styled';
 
-function Button({ onClick, disabled }) {
+export function LoadMore({ onLoadMore }) {
   return (
-    <button type="button" onClick={onClick} disabled={disabled}>
+    <Button type="button" onClick={onLoadMore}>
       Load more
-    </button>
+    </Button>
   );
 }
 
-Button.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  disabled: PropTypes.bool.isRequired,
+LoadMore.propTypes = {
+  onLoadMore: PropTypes.func.isRequired,
 };
 
-export default Button;
+export default LoadMore;

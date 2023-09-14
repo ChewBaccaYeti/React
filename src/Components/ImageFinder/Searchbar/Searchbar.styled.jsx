@@ -77,6 +77,8 @@ export const SearchInput = styled.input`
   outline: none;
   padding-left: 4px;
   padding-right: 4px;
+  margin-left: 8px;
+  margin-right: 8px;
 
   &::placeholder {
     font: inherit;

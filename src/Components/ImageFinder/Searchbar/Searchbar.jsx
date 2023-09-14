@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { TbPhotoSearch } from 'react-icons/tb';
+import { GiSpaceShuttle } from 'react-icons/gi';
 import {
   SearchBar,
   SearchForm,
@@ -50,7 +50,7 @@ export class Searchbar extends Component {
 
           <SearchButton type="submit">
             <SearchLabel>
-              <TbPhotoSearch />
+              <GiSpaceShuttle />
             </SearchLabel>
           </SearchButton>
         </SearchForm>

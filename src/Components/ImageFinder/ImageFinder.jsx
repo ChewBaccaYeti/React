@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import ErrorBoundary from 'utils/ErrorBoundary';
-import { ImageGallery } from './ImageGallery/ImageGallery';
+import { Container } from './ImageFinder.styled';
 import { Searchbar } from './Searchbar/Searchbar';
-import { Container } from 'Layout/Container/Container.styled';
-import scrollOnLoad from 'utils/ScrollOnLoad';
+import { ImageGallery } from './ImageGallery/ImageGallery';
+import { Loader } from './Loader/Loader';
+import { LoadMore } from './Button/Button';
+import { ModalWindow } from './Modal/Modal';
+
 import api from 'services/API/images-api';
+import ErrorBoundary from 'utils/ErrorBoundary';
+import scrollOnLoad from 'utils/ScrollOnLoad';
 
 class ImageFinder extends Component {
   state = {
@@ -35,16 +39,24 @@ class ImageFinder extends Component {
     this.setState({ isLoading: true });
 
     try {
-      const { images: hits } = await api(searchQuery, page);
+      const response = await api(searchQuery, page);
 
-      this.setState(({ images, page }) => ({
-        images: [...images, ...hits],
-        page: page + 1,
-        error: null, // Очищаємо помилку, якщо запит був успішним
-      }));
+      if (Array.isArray(response.hits)) {
+        const { hits } = response;
 
-      if (page !== 1) {
-        scrollOnLoad();
+        this.setState(({ images, page }) => ({
+          images: [...images, ...hits],
+          page: page + 1,
+          error: null,
+        }));
+
+        if (page !== 1) {
+          scrollOnLoad();
+        }
+      } else {
+        // Обработка случая, когда данные не соответствуют ожиданиям
+        console.error('Invalid data format:', response);
+        this.setState({ error: 'Oops! Something went wrong, fella! :)' });
       }
     } catch (error) {
       this.setState({ error: 'Oops! Something get wrong, fella! :)' });
@@ -63,15 +75,29 @@ class ImageFinder extends Component {
   };
 
   render() {
-    const { images, isLoading, error } = this.state;
+    const { images, largeImage, isModalOpen, isLoading, error } = this.state;
+    const lengthImages = images.length >= 12;
+    const isLoadMoreDisabled = !lengthImages || isLoading;
 
     return (
       <ErrorBoundary fallback={<div>Something went wrong</div>}>
         <Container>
           <Searchbar onSubmit={this.handleSubmitSearchQuery} />
+          {error}
           <ImageGallery items={images} getItemClick={this.getLargeImage} />
-          {isLoading && <p>Loading...</p>}
-          {error && <p>{error}</p>}
+          {isLoading && <Loader />}
+          {lengthImages && (
+            <LoadMore
+              onLoadMore={this.getDataImages}
+              disabled={isLoadMoreDisabled}
+            />
+          )}
+          {isModalOpen && (
+            <ModalWindow
+              largeImageURL={largeImage}
+              onClick={this.toggleShowModal}
+            />
+          )}
         </Container>
       </ErrorBoundary>
     );
