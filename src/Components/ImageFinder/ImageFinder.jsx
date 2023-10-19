@@ -6,7 +6,7 @@ import { Loader } from './Loader/Loader';
 import { LoadMore } from './Button/Button';
 import { ModalWindow } from './Modal/Modal';
 
-import api from 'services/API/images-api';
+import api from 'API/images-api';
 import ErrorBoundary from 'utils/ErrorBoundary';
 import scrollOnLoad from 'utils/ScrollOnLoad';
 

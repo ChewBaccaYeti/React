@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import Feedback from 'Components/Feedback/Feedback';
 import Phonebook from 'Components/Phonebook/Phonebook';
 import ImageFinder from 'Components/ImageFinder/ImageFinder';
-import Container from 'Layout/Container/Container.styled';
+import Container from 'Container/Container.styled';
 import { GlobalStyle } from 'utils/GlobalStyle';
 
 class App extends Component {
