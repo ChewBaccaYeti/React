@@ -106,11 +106,10 @@ export class Phonebook extends Component {
   // componentDidUpdate(prevProps, prevState) {}
 
   render() {
-    const { contacts, name, phoneNumber, filterName, isDuplicateAlertVisible } =
-      this.state;
+    const { contacts, name, phoneNumber, filterName, isDuplicateAlertVisible } = this.state;
 
     return (
-      <div>
+      <>
         <PhonebookField>
           <input
             type="text"
@@ -149,11 +148,11 @@ export class Phonebook extends Component {
         />
         {isDuplicateAlertVisible && (
           <PopUp
-            message="This contact is already exist, you just saw standard aler message from browser. Lebovski was here."
+            message="This contact is already exist, you just saw standard alert message from browser. Lebowski was here."
             onClose={this.closeDuplicateAlert}
           />
         )}
-      </div>
+      </>
     );
   }
 }

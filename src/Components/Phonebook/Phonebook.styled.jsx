@@ -6,7 +6,7 @@ export const PhonebookField = styled.div`
   justify-content: center;
   align-items: center;
 
-  gap: 5px;
+  gap: 20px;
 `;
 
 export default PhonebookField;
