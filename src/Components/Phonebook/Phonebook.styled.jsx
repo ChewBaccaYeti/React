@@ -7,6 +7,10 @@ export const PhonebookField = styled.div`
   align-items: center;
 
   gap: 20px;
+  margin: 10px;
+  padding: 20px;
+  border: 4px solid black;
+  border-radius: 10px;
 `;
 
 export default PhonebookField;

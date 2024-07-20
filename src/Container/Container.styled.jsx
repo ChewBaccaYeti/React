@@ -5,10 +5,10 @@ export const Container = styled.section`
   flex-direction: column;
   align-items: center;
 
-  margin-top: 100px;
+  margin-top: 75px;
   margin-right: auto;
   margin-left: auto;
-  margin-bottom: 100px;
+  margin-bottom: 75px;
 
   padding: 50px;
   max-width: 500px;

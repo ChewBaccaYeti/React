@@ -17,17 +17,19 @@ class App extends Component {
     return (
       <>
         {' '}
+        <GlobalStyle />
         <Container>
           <Feedback />
           <Phonebook />
-          <GlobalStyle />
         </Container>
         <ImageFinder />
-        <UseRef />
-        <UseCallback />
-        <UseContext />
-        <UseReducer />
-        <UseMemo />
+        <Container>
+          <UseRef />
+          <UseCallback />
+          <UseContext />
+          <UseReducer />
+          <UseMemo />
+        </Container>
         <ToastContainer />
       </>
     );
